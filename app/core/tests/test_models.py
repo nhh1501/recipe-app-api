@@ -10,7 +10,7 @@ from core import models
 
 
 def create_user(email='user@example.com', password='testpass123'):
-    """Create a return a new user."""""
+    """Create a return a new user."""
     return get_user_model().objects.create_user(email, password)
 
 
@@ -41,15 +41,15 @@ class ModelTests(TestCase):
             user = get_user_model().objects.create_user(email, 'sample123')
             self.assertEqual(user.email, expected)
 
-    def test_new_user_without_email_reaises_error(self):
-        """Test that creating a user without an email rauses a ValueError."""
+    def test_new_user_without_email_raises_error(self):
+        """Test that creating a user without an email raises a ValueError."""
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user('', 'test123')
 
     def test_create_superuser(self):
         """Test creating a superuser."""
         user = get_user_model().objects.create_superuser(
-            'test@expample.com',
+            'test@example.com',
             'test123'
         )
 
